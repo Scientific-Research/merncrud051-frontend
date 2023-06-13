@@ -46,24 +46,52 @@ export const PageLogin = () => {
 					</button>
 				</p>
 			) : (
-				<p>
-					Identify as admin:{' '}
-					<input
-						type="password"
-						ref={passwordRef}
-						autoFocus
-						value={password}
-						onKeyDown={handleKeyDown}
-						onChange={(e) => setPassword(e.target.value)}
-					/>{' '}
-					<button
-						disabled={password.trim() === ''}
-						onClick={loginAndReact}
-						type="button"
-					>
-						Login
-					</button>
-				</p>
+				<>
+					<p>
+						Identify as admin:{' '}
+						<input
+							type="password"
+							ref={passwordRef}
+							autoFocus
+							value={password}
+							onKeyDown={handleKeyDown}
+							onChange={(e) => setPassword(e.target.value)}
+						/>{' '}
+						<button
+							disabled={password.trim() === ''}
+							onClick={loginAndReact}
+							type="button"
+						>
+							Login
+						</button>
+					</p>
+
+					<form>
+						<fieldset>
+							<legend>Please provide your credentials</legend>
+							<div className="row">
+								<label>Username</label>
+								<div>
+									<input type="text" />
+								</div>
+							</div>
+
+							<div className="row">
+								<label>Password</label>
+								<div>
+									<input type="password" />
+								</div>
+							</div>
+
+							<div className="buttonArea">
+								<div className="message">
+									This is a test message.
+								</div>
+								<button type="button">Submit</button>
+							</div>
+						</fieldset>
+					</form>
+				</>
 			)}
 		</div>
 	);
