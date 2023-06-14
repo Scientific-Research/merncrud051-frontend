@@ -312,6 +312,9 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 					withCredentials: true,
 				}
 			);
+			const user = response.data;
+			setCurrentUser({ ...user });
+
 			console.log(response.data);
 		} catch (e: any) {
 			console.log(`GENERAL ERROR:${e.message}`);
