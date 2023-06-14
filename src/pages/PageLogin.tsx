@@ -7,7 +7,7 @@ export const PageLogin = () => {
 	const {
 		appTitle,
 		loginForm,
-		changeLoginFormField
+		changeLoginFormField,
 		// loginAsAdmin,
 		// password,
 		// setPassword,
@@ -93,6 +93,12 @@ export const PageLogin = () => {
 						<label>Password</label>
 						<div>
 							<input
+								onChange={(e) =>
+									changeLoginFormField(
+										'password',
+										e.target.value
+									)
+								}
 								value={loginForm.fields.password}
 								type="password"
 							/>
