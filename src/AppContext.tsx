@@ -39,6 +39,7 @@ interface IAppContext {
 	handleSaveNewBook: () => void;
 	loginForm: ILoginForm;
 	changeLoginFormField: (fieldIdCode: string, value: string) => void;
+	submitLoginForm: () => void;
 }
 
 interface IAppProvider {
@@ -292,6 +293,35 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 		setLoginForm({ ...loginForm });
 	};
 
+	const submitLoginForm = async () => {
+		try {
+			const response = await axios.post(
+				`${backendUrl}/login`,
+				{
+					username: loginForm.fields.username,
+					password: loginForm.fields.password,
+				},
+				{
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					withCredentials: true,
+				}
+			);
+			console.log(response.data);
+		} catch (e: any) {
+			console.log(`GENERAL ERROR:${e.message}`);
+			// switch (e.code) {
+			// 	case 'ERR_BAD_REQUEST':
+			// 		onFailure();
+			// 		break;
+			// 	default:
+			// 		break;
+			// }
+			// setAdminIsLoggedIn(false);
+		}
+		// setPassword('');
+	};
 	return (
 		<AppContext.Provider
 			value={{
@@ -314,6 +344,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				handleSaveNewBook,
 				loginForm,
 				changeLoginFormField,
+				submitLoginForm,
 			}}
 		>
 			{children}

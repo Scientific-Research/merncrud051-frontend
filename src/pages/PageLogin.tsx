@@ -8,6 +8,7 @@ export const PageLogin = () => {
 		appTitle,
 		loginForm,
 		changeLoginFormField,
+		submitLoginForm,
 		// loginAsAdmin,
 		// password,
 		// setPassword,
@@ -108,7 +109,9 @@ export const PageLogin = () => {
 					<div className="buttonArea">
 						{/* <div className="message">This is a test message.</div> */}
 						<div className="message">{loginForm.message}</div>
-						<button type="button">Submit</button>
+						<button type="button" onClick={() => submitLoginForm()}>
+							Submit
+						</button>
 					</div>
 				</fieldset>
 			</form>
