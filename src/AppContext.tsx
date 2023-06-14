@@ -1,7 +1,13 @@
 import { useState, useEffect } from 'react';
 import { createContext } from 'react';
 import axios from 'axios';
-import { IBook, IOriginalEditFields, blankNewBook } from './interfaces';
+import {
+	IBook,
+	ILoginForm,
+	IOriginalEditFields,
+	blankLoginForm,
+	blankNewBook,
+} from './interfaces';
 import * as tools from './tools';
 
 interface IAppContext {
@@ -30,6 +36,7 @@ interface IAppContext {
 		value: string
 	) => void;
 	handleSaveNewBook: () => void;
+	loginForm: ILoginForm;
 }
 
 interface IAppProvider {
@@ -47,7 +54,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	const [adminIsLoggedIn, setAdminIsLoggedIn] = useState(false);
 	const [isAdding, setIsAdding] = useState(false);
 	const [newBook, setNewBook] = useState<IOriginalEditFields>(blankNewBook);
-	const [formLogin, setFormLogin] = useState<IFormLogin>({});
+	const [loginForm, setLoginForm] = useState<ILoginForm>(blankLoginForm);
 
 	const loadBooks = () => {
 		(async () => {
@@ -289,6 +296,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				newBook,
 				handleAddBookFieldChange,
 				handleSaveNewBook,
+				loginForm,
 			}}
 		>
 			{children}

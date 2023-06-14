@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 export const PageLogin = () => {
 	const {
 		appTitle,
+		loginForm,
 		// loginAsAdmin,
 		// password,
 		// setPassword,
@@ -72,19 +73,28 @@ export const PageLogin = () => {
 					<div className="row">
 						<label>Username</label>
 						<div>
-							<input autoFocus type="text" />
+							<input
+								value={loginForm.fields.username}
+								autoFocus
+								type="text"
+							/>
 						</div>
 					</div>
 
 					<div className="row">
 						<label>Password</label>
 						<div>
-							<input type="password" />
+							<input
+								value={loginForm.fields.password}
+								type="password"
+							/>
 						</div>
 					</div>
 
 					<div className="buttonArea">
-						<div className="message">This is a test message.</div>
+						{/* <div className="message">This is a test message.</div> */}
+						<div className="message">{loginForm.message}</div>
+
 						<button type="button">Submit</button>
 					</div>
 				</fieldset>
