@@ -6,6 +6,8 @@ import {
 	ILoginForm,
 	ILoginFormFields,
 	IOriginalEditFields,
+	IUser,
+	anonymousUser,
 	blankLoginForm,
 	blankNewBook,
 } from './interfaces';
@@ -40,6 +42,7 @@ interface IAppContext {
 	loginForm: ILoginForm;
 	changeLoginFormField: (fieldIdCode: string, value: string) => void;
 	submitLoginForm: () => void;
+	currentUser: IUser;
 }
 
 interface IAppProvider {
@@ -58,6 +61,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	const [isAdding, setIsAdding] = useState(false);
 	const [newBook, setNewBook] = useState<IOriginalEditFields>(blankNewBook);
 	const [loginForm, setLoginForm] = useState<ILoginForm>(blankLoginForm);
+	const [currentUser, setCurrentUser] = useState<IUser>(anonymousUser);
 
 	const loadBooks = () => {
 		(async () => {
@@ -345,6 +349,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				loginForm,
 				changeLoginFormField,
 				submitLoginForm,
+				currentUser,
 			}}
 		>
 			{children}

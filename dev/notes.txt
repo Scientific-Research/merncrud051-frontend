@@ -6,6 +6,13 @@
     - message
     - make state variable
     - make interface
-- .. make form work so you can type in field values and they are sent to backend!
+- x make form work so you can type in field values and they are sent to backend!
     - x on the form, implement onChange
-    - .. make button send data to backend
+    - x make button send data to backend
+
+    --------------------------------------------------------------------------------
+
+ - .. create currentUser as state variable! 
+ - show user info below site name (name and groups)
+ - logout
+ - show something for admin that members can't 
