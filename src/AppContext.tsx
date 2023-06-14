@@ -47,6 +47,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	const [adminIsLoggedIn, setAdminIsLoggedIn] = useState(false);
 	const [isAdding, setIsAdding] = useState(false);
 	const [newBook, setNewBook] = useState<IOriginalEditFields>(blankNewBook);
+	const [formLogin, setFormLogin] = useState<IFormLogin>({});
 
 	const loadBooks = () => {
 		(async () => {
