@@ -96,9 +96,10 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 						withCredentials: true,
 					})
 				).data;
-				if (user === 'admin') {
-					setAdminIsLoggedIn(true);
-				}
+				// if (user === 'admin') {
+				// 	setAdminIsLoggedIn(true);
+				// }
+				setCurrentUser({ ...user });
 			} catch (e: any) {
 				console.log('GENERAL ERROR');
 			}
