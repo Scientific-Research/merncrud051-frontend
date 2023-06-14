@@ -22,11 +22,17 @@ export interface IBook {
 	originalEditFields: IOriginalEditFields;
 }
 
+export interface ILoginFormFields {
+	username: string;
+	password: string;
+}
+
 export interface ILoginForm {
-	fields: {
-		username: string;
-		password: string;
-	};
+	// fields: {
+	// 	username: string;
+	// 	password: string;
+	// };
+	fields: ILoginFormFields;
 	message: string;
 }
 

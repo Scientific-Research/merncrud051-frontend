@@ -4,6 +4,7 @@ import axios from 'axios';
 import {
 	IBook,
 	ILoginForm,
+	ILoginFormFields,
 	IOriginalEditFields,
 	blankLoginForm,
 	blankNewBook,
@@ -278,14 +279,16 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	};
 
 	const changeLoginFormField = (fieldIdCode: string, value: string) => {
-		switch (fieldIdCode) {
-			case 'username':
-				loginForm.fields.username = value;
-				break;
-			case 'password':
-				loginForm.fields.password = value;
-				break;
-		}
+		// switch (fieldIdCode) {
+		// 	case 'username':
+		// 		loginForm.fields.username = value;
+		// 		break;
+		// 	case 'password':
+		// 		loginForm.fields.password = value;
+		// 		break;
+		// }
+
+		loginForm.fields[fieldIdCode as keyof ILoginFormFields] = value;
 		setLoginForm({ ...loginForm });
 	};
 
