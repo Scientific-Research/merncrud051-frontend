@@ -32,8 +32,8 @@ export interface ILoginForm {
 
 export const blankLoginForm: ILoginForm = {
 	fields: {
-		username: 'Username here',
-		password: 'Password here',
+		username: '',
+		password: '',
 	},
-	message: 'Please enter info here!',
+	message: '',
 };

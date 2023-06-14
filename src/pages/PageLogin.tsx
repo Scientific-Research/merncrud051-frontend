@@ -7,12 +7,14 @@ export const PageLogin = () => {
 	const {
 		appTitle,
 		loginForm,
+		changeLoginFormField
 		// loginAsAdmin,
 		// password,
 		// setPassword,
 		// adminIsLoggedIn,
 		// logoutAsAdmin,
 	} = useContext(AppContext);
+
 	// const navigate = useNavigate();
 	// const passwordRef = useRef() as React.RefObject<HTMLInputElement>;
 
@@ -74,6 +76,12 @@ export const PageLogin = () => {
 						<label>Username</label>
 						<div>
 							<input
+								onChange={(e) =>
+									changeLoginFormField(
+										'username',
+										e.target.value
+									)
+								}
 								value={loginForm.fields.username}
 								autoFocus
 								type="text"
@@ -94,7 +102,6 @@ export const PageLogin = () => {
 					<div className="buttonArea">
 						{/* <div className="message">This is a test message.</div> */}
 						<div className="message">{loginForm.message}</div>
-
 						<button type="button">Submit</button>
 					</div>
 				</fieldset>

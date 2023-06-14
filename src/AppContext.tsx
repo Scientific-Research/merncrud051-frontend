@@ -37,6 +37,7 @@ interface IAppContext {
 	) => void;
 	handleSaveNewBook: () => void;
 	loginForm: ILoginForm;
+	changeLoginFormField: (fieldIdCode: string, value: string) => void;
 }
 
 interface IAppProvider {
@@ -276,6 +277,11 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 		}
 	};
 
+	const changeLoginFormField = (fieldIdCode: string, value: string) => {
+		loginForm.fields.username = value;
+		setLoginForm({ ...loginForm });
+	};
+
 	return (
 		<AppContext.Provider
 			value={{
@@ -297,6 +303,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				handleAddBookFieldChange,
 				handleSaveNewBook,
 				loginForm,
+				changeLoginFormField,
 			}}
 		>
 			{children}
