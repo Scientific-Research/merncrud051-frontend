@@ -32,11 +32,11 @@ export const PageLogin = () => {
 	// 	);
 	// };
 
-	// const handleKeyDown = (e: any) => {
-	// 	if (e.key === 'Enter') {
-	// 		loginAndReact();
-	// 	}
-	// };
+	const handleKeyDown = (e: any) => {
+		if (e.key === 'Enter') {
+			submitLoginForm();
+		}
+	};
 
 	return (
 		<div className="page pageLogin">
@@ -94,6 +94,7 @@ export const PageLogin = () => {
 						<label>Password</label>
 						<div>
 							<input
+								onKeyDown={handleKeyDown}
 								onChange={(e) =>
 									changeLoginFormField(
 										'password',
