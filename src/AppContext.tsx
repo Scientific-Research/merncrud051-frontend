@@ -43,6 +43,7 @@ interface IAppContext {
 	changeLoginFormField: (fieldIdCode: string, value: string) => void;
 	submitLoginForm: () => void;
 	currentUser: IUser;
+	currentUserIsInAccessGroup: (accessGroup: string) => boolean;
 }
 
 interface IAppProvider {
@@ -330,6 +331,10 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 		}
 		// setPassword('');
 	};
+
+	const currentUserIsInAccessGroup = (accessGroup: string) => {
+		return currentUser.accessGroups.includes(accessGroup);
+	};
 	return (
 		<AppContext.Provider
 			value={{
@@ -354,6 +359,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				changeLoginFormField,
 				submitLoginForm,
 				currentUser,
+				currentUserIsInAccessGroup,
 			}}
 		>
 			{children}
