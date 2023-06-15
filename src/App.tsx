@@ -23,7 +23,8 @@ function App() {
 			)}
 			<nav>
 				<NavLink to="/books">Books</NavLink>
-				{adminIsLoggedIn ? (
+				{/* {adminIsLoggedIn ? ( */}
+				{currentUserIsInAccessGroup('loggedInUsers') ? (
 					<NavLink to="/logout">Logout</NavLink>
 				) : (
 					<NavLink to="/login">Login</NavLink>
@@ -32,7 +33,7 @@ function App() {
 
 			<Routes>
 				<Route path="/books" element={<PageBooks />} />
-				{adminIsLoggedIn ? (
+				{currentUserIsInAccessGroup('loggedInUsers') ? (
 					<Route path="/logout" element={<PageLogout />} />
 				) : (
 					<Route path="/login" element={<PageLogin />} />
