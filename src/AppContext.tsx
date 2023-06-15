@@ -85,11 +85,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 		})();
 	};
 
-	useEffect(() => {
-		loadBooks();
-	}, []);
-
-	useEffect(() => {
+	const getCurrentUser = () => {
 		(async () => {
 			try {
 				const user = (
@@ -105,6 +101,14 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				console.log('GENERAL ERROR');
 			}
 		})();
+	};
+
+	useEffect(() => {
+		loadBooks();
+	}, []);
+
+	useEffect(() => {
+		getCurrentUser();
 	}, []);
 
 	const handleCancelEditBook = (book: IBook) => {
@@ -237,6 +241,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				await axios.get(`${backendUrl}/logout`, {
 					withCredentials: true,
 				});
+				getCurrentUser();
 			} catch (e: any) {
 				console.log('GENERAL ERROR');
 			}
