@@ -16,5 +16,7 @@
  - x show user info below site name (name and groups)
  - x logout
 
- 
+ - .. clear login from login
+
+ - navigate to home page on Login (with callback)
  - show something for admin that members can't 

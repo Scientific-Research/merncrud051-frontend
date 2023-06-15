@@ -97,6 +97,8 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				// 	setAdminIsLoggedIn(true);
 				// }
 				setCurrentUser({ ...user });
+				loginForm.fields.username = '';
+				loginForm.fields.password = '';
 			} catch (e: any) {
 				console.log('GENERAL ERROR');
 			}
@@ -322,8 +324,8 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 			);
 			const user = response.data;
 			setCurrentUser({ ...user });
-
 			console.log(response.data);
+			setLoginForm({ ...blankLoginForm });
 		} catch (e: any) {
 			console.log(`GENERAL ERROR:${e.message}`);
 			// switch (e.code) {
