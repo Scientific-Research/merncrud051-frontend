@@ -12,6 +12,7 @@ import {
 	blankNewBook,
 } from './interfaces';
 import * as tools from './tools';
+import { cloneDeep } from 'lodash-es';
 
 interface IAppContext {
 	appTitle: string;
@@ -61,7 +62,11 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	const [adminIsLoggedIn, setAdminIsLoggedIn] = useState(false);
 	const [isAdding, setIsAdding] = useState(false);
 	const [newBook, setNewBook] = useState<IOriginalEditFields>(blankNewBook);
-	const [loginForm, setLoginForm] = useState<ILoginForm>(blankLoginForm);
+	// const [loginForm, setLoginForm] = useState<ILoginForm>(blankLoginForm);
+	const [loginForm, setLoginForm] = useState<ILoginForm>(
+		cloneDeep(blankLoginForm)
+	);
+
 	const [currentUser, setCurrentUser] = useState<IUser>(anonymousUser);
 
 	const loadBooks = () => {
@@ -97,8 +102,8 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				// 	setAdminIsLoggedIn(true);
 				// }
 				setCurrentUser({ ...user });
-				loginForm.fields.username = '';
-				loginForm.fields.password = '';
+				// loginForm.fields.username = '';
+				// loginForm.fields.password = '';
 			} catch (e: any) {
 				console.log('GENERAL ERROR');
 			}
