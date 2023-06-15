@@ -12,7 +12,9 @@
 
     --------------------------------------------------------------------------------
 
- - .. create currentUser as state variable! 
- - show user info below site name (name and groups)
- - logout
+ - x create currentUser as state variable! 
+ - x show user info below site name (name and groups)
+ - x logout
+
+ 
  - show something for admin that members can't 
