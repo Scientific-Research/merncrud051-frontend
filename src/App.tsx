@@ -15,9 +15,8 @@ function App() {
 			{currentUserIsInAccessGroup('loggedInUsers') && (
 				<div className="userArea">
 					<span>
-						{currentUser.firstName}
-						{currentUser.lastName}
-						(ACCESS GROUPS:{currentUser.accessGroups.join(',')})
+						{currentUser.firstName} {currentUser.lastName} (ACCESS
+						GROUPS: {currentUser.accessGroups.join(', ')})
 					</span>
 				</div>
 			)}

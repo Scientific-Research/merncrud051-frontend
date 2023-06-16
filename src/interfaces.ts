@@ -36,7 +36,7 @@ export interface ILoginForm {
 	message: string;
 }
 
-export const blankLoginForm: ILoginForm = {
+export const blankLoginForm = {
 	fields: {
 		username: '',
 		password: '',
