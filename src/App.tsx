@@ -5,6 +5,7 @@ import { NavLink, Routes, Route, Navigate } from 'react-router-dom';
 import { PageBooks } from './pages/PageBooks';
 import { PageLogin } from './pages/PageLogin';
 import { PageLogout } from './pages/PageLogout';
+import { PageMembers } from './pages/PageMembers';
 
 function App() {
 	const { adminIsLoggedIn, currentUser, currentUserIsInAccessGroup } =
@@ -22,6 +23,7 @@ function App() {
 			)}
 			<nav>
 				<NavLink to="/books">Books</NavLink>
+				<NavLink to="/members">Members</NavLink>
 				{/* {adminIsLoggedIn ? ( */}
 				{currentUserIsInAccessGroup('loggedInUsers') ? (
 					<NavLink to="/logout">Logout</NavLink>
@@ -32,6 +34,7 @@ function App() {
 
 			<Routes>
 				<Route path="/books" element={<PageBooks />} />
+				<Route path="/members" element={<PageMembers />} />
 				{currentUserIsInAccessGroup('loggedInUsers') ? (
 					<Route path="/logout" element={<PageLogout />} />
 				) : (
