@@ -71,6 +71,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	);
 
 	const [currentUser, setCurrentUser] = useState<IUser>(anonymousUser);
+	
 	const navigate = useNavigate();
 
 	const loadBooks = () => {
