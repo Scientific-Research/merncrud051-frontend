@@ -6,7 +6,6 @@ export const PageBooks = () => {
 	const {
 		appTitle,
 		books,
-		adminIsLoggedIn,
 		handleDeleteBook,
 		handleBookFieldChange,
 		handleEditBook,
@@ -130,7 +129,7 @@ export const PageBooks = () => {
 										<div className="language">
 											{book.languageText}
 										</div>
-										{adminIsLoggedIn && (
+										{currentUserIsAdmin() && (
 											<div className="buttonArea">
 												<button
 													type="button"
