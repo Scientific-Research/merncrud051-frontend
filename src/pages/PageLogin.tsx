@@ -1,4 +1,4 @@
-import { useContext, useRef } from 'react';
+import { KeyboardEvent, useContext, useRef } from 'react';
 import { AppContext } from '../AppContext';
 import { Helmet } from 'react-helmet';
 
@@ -40,11 +40,11 @@ export const PageLogin = () => {
 	// 			if (passwordRef.current !== null) {
 	// 				passwordRef.current.focus();
 	// 			}
-	// 		}  
+	// 		}
 	// 	);
 	// };
 
-	const handleKeyDown = (e: any) => {
+	const handleKeyDown = (e: KeyboardEvent) => {
 		if (e.key === 'Enter') {
 			submitLoginForm(onBadLogin);
 		}
