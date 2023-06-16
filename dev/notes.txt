@@ -19,6 +19,9 @@
  - x navigate to home page on Login (with callback)
 
  - .. check bad logins
-    - .. 
+    - .. user ok, password bad
+    - user bad
+
+- when click on login page, delete form fields
 
  - show something for admin that members can't 
