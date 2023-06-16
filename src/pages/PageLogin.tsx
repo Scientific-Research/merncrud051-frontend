@@ -1,7 +1,6 @@
 import { useContext, useRef } from 'react';
 import { AppContext } from '../AppContext';
 import { Helmet } from 'react-helmet';
-import { useNavigate } from 'react-router-dom';
 
 export const PageLogin = () => {
 	const {
@@ -16,6 +15,19 @@ export const PageLogin = () => {
 		// logoutAsAdmin,
 	} = useContext(AppContext);
 
+	// const passwordRef = useRef() as React.RefObject<HTMLIFrameElement>;
+	const passwordRef = useRef() as any;
+
+	const onBadLogin = () => {
+		// console.log('bad login');
+		if (passwordRef.current !== null) {
+			passwordRef.current.focus();
+		}
+	};
+
+	const submitLoginFormWrapper = () => {
+		submitLoginForm(onBadLogin);
+	};
 	// const navigate = useNavigate();
 	// const passwordRef = useRef() as React.RefObject<HTMLInputElement>;
 
@@ -34,7 +46,7 @@ export const PageLogin = () => {
 
 	const handleKeyDown = (e: any) => {
 		if (e.key === 'Enter') {
-			submitLoginForm();
+			submitLoginForm(onBadLogin);
 		}
 	};
 
@@ -94,6 +106,7 @@ export const PageLogin = () => {
 						<label>Password</label>
 						<div>
 							<input
+								ref={passwordRef}
 								onKeyDown={handleKeyDown}
 								onChange={(e) =>
 									changeLoginFormField(
@@ -110,7 +123,10 @@ export const PageLogin = () => {
 					<div className="buttonArea">
 						{/* <div className="message">This is a test message.</div> */}
 						<div className="message">{loginForm.message}</div>
-						<button type="button" onClick={() => submitLoginForm()}>
+						<button
+							type="button"
+							onClick={() => submitLoginFormWrapper()}
+						>
 							Submit
 						</button>
 					</div>
