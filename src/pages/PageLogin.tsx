@@ -40,7 +40,7 @@ export const PageLogin = () => {
 	// 			if (passwordRef.current !== null) {
 	// 				passwordRef.current.focus();
 	// 			}
-	// 		}
+	// 		}  
 	// 	);
 	// };
 
@@ -89,6 +89,7 @@ export const PageLogin = () => {
 						<label>Username</label>
 						<div>
 							<input
+								onKeyDown={handleKeyDown}
 								onChange={(e) =>
 									changeLoginFormField(
 										'username',
