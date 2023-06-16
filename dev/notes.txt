@@ -24,4 +24,6 @@
 
 - x when click on login page, delete form fields
 
- - .. show something for admin that members can't 
+ - .. show something for admin that members can't see
+
+ - clean all code out that is not used!
