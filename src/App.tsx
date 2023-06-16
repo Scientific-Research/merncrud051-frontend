@@ -16,15 +16,16 @@ function App() {
 			{currentUserIsInAccessGroup('loggedInUsers') && (
 				<div className="userArea">
 					<span>
-						{currentUser.firstName} {currentUser.lastName} (ACCESS
-						GROUPS: {currentUser.accessGroups.join(', ')})
+						{currentUser.firstName} {currentUser.lastName}
+						{/* (ACCESS GROUPS: {currentUser.accessGroups.join(', ')}) */}
 					</span>
 				</div>
 			)}
 			<nav>
 				<NavLink to="/books">Books</NavLink>
-				<NavLink to="/members">Members</NavLink>
-				{/* {adminIsLoggedIn ? ( */}
+				{currentUserIsInAccessGroup('members') && (
+					<NavLink to="/members">Members</NavLink>
+				)}
 				{currentUserIsInAccessGroup('loggedInUsers') ? (
 					<NavLink to="/logout">Logout</NavLink>
 				) : (
@@ -33,8 +34,10 @@ function App() {
 			</nav>
 
 			<Routes>
+				{currentUserIsInAccessGroup('loggedInUsers') && (
+					<Route path="/members" element={<PageMembers />} />
+				)}
 				<Route path="/books" element={<PageBooks />} />
-				<Route path="/members" element={<PageMembers />} />
 				{currentUserIsInAccessGroup('loggedInUsers') ? (
 					<Route path="/logout" element={<PageLogout />} />
 				) : (
