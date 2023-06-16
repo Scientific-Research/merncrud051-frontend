@@ -46,6 +46,7 @@ interface IAppContext {
 	submitLoginForm: (onBadLogin: () => void) => void;
 	currentUser: IUser;
 	currentUserIsInAccessGroup: (accessGroup: string) => boolean;
+	clearLoginForm: () => void;
 }
 
 interface IAppProvider {
@@ -358,6 +359,11 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	const currentUserIsInAccessGroup = (accessGroup: string) => {
 		return currentUser.accessGroups.includes(accessGroup);
 	};
+
+	const clearLoginForm = () => {
+		// setLoginForm({ ...blankLoginForm });
+		setLoginForm(cloneDeep(blankLoginForm));
+	};
 	return (
 		<AppContext.Provider
 			value={{
@@ -383,6 +389,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				currentUser,
 				currentUserIsInAccessGroup,
 				logUserOut,
+				clearLoginForm,
 			}}
 		>
 			{children}

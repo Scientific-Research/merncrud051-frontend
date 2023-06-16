@@ -1,4 +1,4 @@
-import { KeyboardEvent, useContext, useRef } from 'react';
+import { KeyboardEvent, useContext, useEffect, useRef } from 'react';
 import { AppContext } from '../AppContext';
 import { Helmet } from 'react-helmet';
 
@@ -8,6 +8,7 @@ export const PageLogin = () => {
 		loginForm,
 		changeLoginFormField,
 		submitLoginForm,
+		clearLoginForm
 		// loginAsAdmin,
 		// password,
 		// setPassword,
@@ -49,6 +50,10 @@ export const PageLogin = () => {
 			submitLoginForm(onBadLogin);
 		}
 	};
+
+	useEffect(() => {
+		clearLoginForm();
+	}, []);
 
 	return (
 		<div className="page pageLogin">

@@ -18,10 +18,10 @@
  - x clear login from login
  - x navigate to home page on Login (with callback)
 
- - .. check bad logins
-    - .. user ok, password bad
-    - user bad
+ - x check bad logins
+    - x user ok, password bad
+    - x user bad
 
-- when click on login page, delete form fields
+- x when click on login page, delete form fields
 
- - show something for admin that members can't 
+ - .. show something for admin that members can't 
