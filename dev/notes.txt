@@ -27,7 +27,7 @@
  - x show something for admin that members can't see
 
  - x make members page
- - .. a note for members but loaded from backend (!!!)
+ - x a note for members but loaded from backend (!!!)
  - a note for unapproved members
     - show them members page in menu
     - but make it blank with a note, "You will be approved soon."
